@@ -16,6 +16,7 @@ module.exports = {
         "button-hover": "#D9D1B6",
         "placeholder-color": "#5F544E",
         golden: "#d69c0a",
+        "regular-gray": "#333333",
         gray: {
           100: "#8E8E8E",
           400: "#A0AEC0",
