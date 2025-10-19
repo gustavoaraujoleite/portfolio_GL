@@ -14,6 +14,9 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
+import "tailwindcss/tailwind.css";
+
+
 import './commands'
 
 import { mount } from 'cypress/react'
