@@ -1,5 +1,7 @@
+import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
+
 import Image from "next/image";
-import GLDefaultLogo from "../../../../../public/images/logo_default.png";
+import GLSmallLogo from "../../../../../public/icons/logo_small.svg";
 import SocialMediaIcon from "../ui/SocialMediaIcon";
 
 import InstagramIcon from "../../../../../public/icons/Instagram.svg";
@@ -18,23 +20,15 @@ export default function Footer({ backgroundColor }: Props) {
     >
       <div
         data-testid="footer-inner-container"
-        className="w-full max-w-[1078px] flex justify-between items-center"
+        className={`w-full ${MAX_CONTENT_WIDTH} max-w-[1078px] flex justify-center flex-col lg:flex-row gap-4 lg:gap-0 lg:justify-between items-center py-4 lg:py-0`}
       >
-        <Link href={"/"}>
-        <div className="relative h-[80px] w-[140px]">
-          <Image
-            src={GLDefaultLogo}
-            alt="group icon"
-            fill
-            className="objetc-contain"
-          />
-        </div>
+        <Link href={"/"} className="hidden lg:block">
+          <Image src={GLSmallLogo} alt="group icon" height={80} width={80} />
         </Link>
-
-        <div
-          data-testid="footer-icon-container"
-          className="flex gap-4 lg:gap-8"
-        >
+        <span className="hidden lg:block text-gray-50 text-[14px]">
+          Gustavo Leite. Todos os direitos reservados
+        </span>
+        <div data-testid="footer-icon-container" className="flex gap-8 ">
           <SocialMediaIcon
             imageSrc={LinkedinIcon}
             href="https://www.linkedin.com/in/gustavoaraujoleite/"
@@ -48,6 +42,9 @@ export default function Footer({ backgroundColor }: Props) {
             href="https://www.instagram.com/gustavoaraujoleite/"
           />
         </div>
+        <span className="block lg:hidden text-gray-50 text-[12px]">
+          Gustavo Leite. Todos os direitos reservados
+        </span>
       </div>
     </section>
   );

@@ -66,19 +66,10 @@ describe("Footer component", () => {
       .should("have.class", "max-w-[1078px]");
   });
 
-  it("footer inner component should have flex + justify-between class", () => {
-    cy.get('[data-testid="footer-inner-container"]')
-      .should("be.visible")
-      .then(($footer) => {
-        const style = getComputedStyle($footer[0]);
-        expect(style.justifyContent).to.equal("space-between");
-        expect(style.alignItems).to.equal("center");
-      });
-  });
-
   it("footer icon component should have flex + gap = 32px class", () => {
-    cy.get('[data-testid="footer-icon-container"]')
-      .should("have.class", "gap-4")
-      .should("have.class", "lg:gap-8");
+    cy.get('[data-testid="footer-icon-container"]').should(
+      "have.class",
+      "gap-8"
+    );
   });
 });

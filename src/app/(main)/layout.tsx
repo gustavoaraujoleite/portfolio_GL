@@ -1,26 +1,20 @@
+import { MAX_CONTENT_WIDTH } from "./utils/globalStyle";
 import { ReactNode } from "react";
-import Beams from "./components/Beams";
 import Footer from "./components/Footer";
+import Header from "./components/Header";
 
-type Props ={
-    children: ReactNode
-}
-export default function AppLayout({children}: Props) {
+type Props = {
+  children: ReactNode;
+};
+export default function AppLayout({ children }: Props) {
   return (
     <section className="w-full h-screen">
-      <div className="w-full h-full">
-        <Beams
-          beamWidth={1.5}
-          beamHeight={23}
-          beamNumber={50}
-          lightColor="#ffffff"
-          speed={5.5}
-          noiseIntensity={3.55}
-          scale={0.07}
-          rotation={131}
-        />
+      <Header />
+      <div className="w-full flex justify-center pt-8">
+        <div className={`h-full w-full pl-6 ${MAX_CONTENT_WIDTH}`}>
+          {children}
+        </div>
       </div>
-      {children}
       <Footer backgroundColor="bg-regular-gray" />
     </section>
   );
