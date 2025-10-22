@@ -1,7 +1,9 @@
+"use client";
 import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 import Link from "next/link";
 import Image from "next/image";
 import GLDefaultLogo from "../../../../../public/images/logo_default.png";
+import SwitcherComponent from "../SwitcherComponent";
 
 export default function Header() {
   return (
@@ -11,10 +13,10 @@ export default function Header() {
     >
       <div
         data-testid="header-inner-container"
-        className={`w-full ${MAX_CONTENT_WIDTH} flex justify-between items-center`}
+        className={`w-full ${MAX_CONTENT_WIDTH} flex justify-between items-center flex-nowrap`}
       >
         <Link href={"/"}>
-          <div className="relative h-[80px] w-[140px]">
+          <div className="relative h-[80px] w-[140px] lg:w-[210px] lg:h-[130px]">
             <Image
               src={GLDefaultLogo}
               alt="group icon"
@@ -23,6 +25,8 @@ export default function Header() {
             />
           </div>
         </Link>
+
+        <SwitcherComponent />
       </div>
     </section>
   );

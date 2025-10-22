@@ -17,6 +17,8 @@ module.exports = {
         "placeholder-color": "#5F544E",
         golden: "#d69c0a",
         "regular-gray": "#333333",
+        "dim-gray": "#6E6E6E",
+        "golden-yellow": "#F5B401",
         gray: {
           100: "#8E8E8E",
           400: "#A0AEC0",

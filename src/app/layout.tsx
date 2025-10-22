@@ -56,14 +56,14 @@ export default function RootLayout({
         <div className="relative min-h-screen">
           <div className="fixed inset-0 -z-10 pointer-events-none">
             <Beams
-              beamWidth={2}
-              beamHeight={15}
-              beamNumber={12}
+              beamWidth={1}
+              beamHeight={23}
+              beamNumber={50}
               lightColor="#ffffff"
-              speed={2}
-              noiseIntensity={1.75}
-              scale={0.2}
-              rotation={0}
+              speed={5.5}
+              noiseIntensity={3.55}
+              scale={0.1}
+              rotation={120}
             />
           </div>
 

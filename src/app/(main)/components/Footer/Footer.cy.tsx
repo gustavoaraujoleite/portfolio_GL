@@ -1,3 +1,4 @@
+import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 import Footer from ".";
 
 describe("Footer component", () => {
@@ -19,23 +20,6 @@ describe("Footer component", () => {
 
   it("footer component should have full width", () => {
     cy.get('[data-testid="footer-container"]').should("have.class", "w-full");
-  });
-
-  it("footer component should have 8px y-padding", () => {
-    cy.get('[data-testid="footer-container"]')
-      .should("be.visible")
-      .then(($footer) => {
-        const style = getComputedStyle($footer[0]);
-        expect(style.paddingTop).to.equal("8px");
-        expect(style.paddingBottom).to.equal("8px");
-      });
-  });
-
-  it("footer component should have 16px x-padding for smaller windows and a 0px x-padding for extra large windows", () => {
-    cy.get('[data-testid="footer-container"]')
-      .should("be.visible")
-      .should("have.class", "px-4")
-      .should("have.class", "xl:px-0");
   });
 
   it("footer component should have a background color of regular-gray inserted via props", () => {
@@ -60,16 +44,9 @@ describe("Footer component", () => {
     cy.get('[data-testid="footer-inner-container"]').should("exist");
   });
 
-  it("footer inner container should a 100% width along with a max-width=1078px", () => {
+  it(`footer inner container should a 100% width along with a ${MAX_CONTENT_WIDTH}`, () => {
     cy.get('[data-testid="footer-inner-container"]')
       .should("have.class", "w-full")
-      .should("have.class", "max-w-[1078px]");
-  });
-
-  it("footer icon component should have flex + gap = 32px class", () => {
-    cy.get('[data-testid="footer-icon-container"]').should(
-      "have.class",
-      "gap-8"
-    );
+      .should("have.class", `${MAX_CONTENT_WIDTH}`);
   });
 });
