@@ -6,6 +6,7 @@ import GLDefaultLogo from "../../../../../public/images/logo_default.png";
 import SwitcherComponent from "../SwitcherComponent";
 
 export default function Header() {
+  
   return (
     <section
       data-testid="header-container"
@@ -25,8 +26,8 @@ export default function Header() {
             />
           </div>
         </Link>
-
-        <SwitcherComponent />
+       
+        {/* <SwitcherComponent /> */}
       </div>
     </section>
   );

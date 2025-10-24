@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Nunito } from "next/font/google";
-import Beams from "./(main)/components/Beams";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,24 +52,7 @@ export default function RootLayout({
       <head>
         <link rel="shortcut icon" href="/images/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>
-        <div className="relative min-h-screen">
-          <div className="fixed inset-0 -z-10 pointer-events-none">
-            <Beams
-              beamWidth={1}
-              beamHeight={23}
-              beamNumber={50}
-              lightColor="#ffffff"
-              speed={5.5}
-              noiseIntensity={3.55}
-              scale={0.1}
-              rotation={120}
-            />
-          </div>
-
-          <div className="relative z-10">{children}</div>
-        </div>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

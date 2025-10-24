@@ -3,7 +3,6 @@ import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 import Image from "next/image";
 import GLSmallLogo from "../../../../../public/icons/logo_small.svg";
 import SocialMediaIcon from "../ui/SocialMediaIcon";
-
 import InstagramIcon from "../../../../../public/icons/Instagram.svg";
 import GithubIcon from "../../../../../public/icons/Github.svg";
 import LinkedinIcon from "../../../../../public/icons/Linkedin.svg";
@@ -25,9 +24,11 @@ export default function Footer({ backgroundColor }: Props) {
         <Link href={"/"} className="hidden lg:block">
           <Image src={GLSmallLogo} alt="group icon" height={80} width={80} />
         </Link>
-        <span className="hidden lg:block text-gray-50 text-[14px]">
+
+        <span className="hidden lg:block text-gray-50 text-[14px] mt-6">
           Gustavo Leite. Todos os direitos reservados
         </span>
+
         <div data-testid="footer-icon-container" className="flex gap-8 ">
           <SocialMediaIcon
             imageSrc={LinkedinIcon}

@@ -7,3 +7,54 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+@keyframes wave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-wave {
+  background-size: 260% 260%;
+  animation: wave 60s linear infinite;
+}
+
+@keyframes wave-slow {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-wave-slow {
+  background-size: 240% 240%;
+  animation: wave-slow 120s linear infinite;
+}
+@keyframes wave-fast {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-wave-fast {
+  background-size: 280% 280%; 
+  animation: wave-fast 40s linear infinite; 
+}
+
+
