@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <section
       data-testid="header-container"
-      className="top-0 py-2 px-4 xl:px-0 flex justify-center w-full "
+      className="top-0 py-2 flex px-4 justify-center w-full "
     >
       <div
         data-testid="header-inner-container"

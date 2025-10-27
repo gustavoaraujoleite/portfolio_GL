@@ -1,34 +1,20 @@
 import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 
-import Image from "next/image";
-import GLSmallLogo from "../../../../../public/icons/logo_small.svg";
 import SocialMediaIcon from "../ui/SocialMediaIcon";
 import InstagramIcon from "../../../../../public/icons/Instagram.svg";
 import GithubIcon from "../../../../../public/icons/Github.svg";
 import LinkedinIcon from "../../../../../public/icons/Linkedin.svg";
-import Link from "next/link";
 
-type Props = {
-  backgroundColor?: `bg-${string}`;
-};
-export default function Footer({ backgroundColor }: Props) {
+export default function Footer() {
   return (
     <section
       data-testid="footer-container"
-      className={`flex justify-center fixed bottom-0 w-full py-2 px-4 xl:px-0 ${backgroundColor}`}
+      className={`flex justify-center w-full pt-8 pb-2 px-4`}
     >
       <div
         data-testid="footer-inner-container"
-        className={`w-full ${MAX_CONTENT_WIDTH} max-w-[1078px] flex justify-center flex-col lg:flex-row gap-4 lg:gap-0 lg:justify-between items-center py-4 lg:py-0`}
+        className={`w-full ${MAX_CONTENT_WIDTH} flex justify-center flex-col gap-5 items-center py-4 `}
       >
-        <Link href={"/"} className="hidden lg:block">
-          <Image src={GLSmallLogo} alt="group icon" height={80} width={80} />
-        </Link>
-
-        <span className="hidden lg:block text-gray-50 text-[14px] mt-6">
-          Gustavo Leite. Todos os direitos reservados
-        </span>
-
         <div data-testid="footer-icon-container" className="flex gap-8 ">
           <SocialMediaIcon
             imageSrc={LinkedinIcon}
@@ -43,8 +29,8 @@ export default function Footer({ backgroundColor }: Props) {
             href="https://www.instagram.com/gustavoaraujoleite/"
           />
         </div>
-        <span className="block lg:hidden text-gray-50 text-[12px]">
-          Gustavo Leite. Todos os direitos reservados
+        <span className="text-gray-50 text-[12px] md:text-[14px] lg:text-[18px] font-mono">
+          @2025 Gustavo Leite
         </span>
       </div>
     </section>

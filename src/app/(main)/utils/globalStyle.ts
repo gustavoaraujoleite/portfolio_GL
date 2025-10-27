@@ -1,1 +1,1 @@
-export const MAX_CONTENT_WIDTH: string = "max-w-[1200px]";
+export const MAX_CONTENT_WIDTH: string = "max-w-7xl";

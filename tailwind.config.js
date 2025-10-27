@@ -26,7 +26,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        nunito: ["var(--font-nunito)"],
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
     },
   },

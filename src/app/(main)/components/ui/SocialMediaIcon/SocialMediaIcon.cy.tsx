@@ -30,15 +30,15 @@ describe("Social media icon component", () => {
       .should("be.visible")
       .then(($footer) => {
         const style = getComputedStyle($footer[0]);
-        expect(style.width).to.equal("32px");
-        expect(style.height).to.equal("32px");
+        expect(style.width).to.equal("28px");
+        expect(style.height).to.equal("28px");
       });
   });
   it("should scale up when hovered", () => {
     cy.get('[data-testid="social-media-icon-container"]')
       .should("have.class", "hover:scale-150")
       .should("have.class", "transition-transform")
-      .should("have.class", "duration-150");
+      .should("have.class", "duration-300");
       
   });
 });

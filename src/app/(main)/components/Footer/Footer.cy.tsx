@@ -3,32 +3,14 @@ import Footer from ".";
 
 describe("Footer component", () => {
   beforeEach(() => {
-    cy.mount(<Footer backgroundColor="bg-regular-gray" />);
+    cy.mount(<Footer />);
   });
   it("footer component should exist", () => {
     cy.get('[data-testid="footer-container"]').should("exist");
   });
-  it("footer component should stick in the bottom", () => {
-    cy.get('[data-testid="footer-container"]')
-      .should("be.visible")
-      .then(($footer) => {
-        const style = getComputedStyle($footer[0]);
-        expect(style.position).to.equal("fixed");
-        expect(style.bottom).to.equal("0px");
-      });
-  });
 
   it("footer component should have full width", () => {
     cy.get('[data-testid="footer-container"]').should("have.class", "w-full");
-  });
-
-  it("footer component should have a background color of regular-gray inserted via props", () => {
-    cy.get('[data-testid="footer-container"]')
-      .should("be.visible")
-      .then(($footer) => {
-        const style = getComputedStyle($footer[0]);
-        expect(style.backgroundColor).to.equal("rgb(51, 51, 51)");
-      });
   });
 
   it("footer component should have place children component to center", () => {
