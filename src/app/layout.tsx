@@ -1,14 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
-const inter = Inter({ subsets: ["latin"] });
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  variable: "--font-nunito",
-  display: "swap",
-});
 export const metadata: Metadata = {
   title: "Gustavo Araujo Leite",
   description:
@@ -47,11 +41,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${nunito.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
+    >
       <head>
         <link rel="shortcut icon" href="/images/favicon.ico" sizes="any" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

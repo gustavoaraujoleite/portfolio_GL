@@ -1,40 +1,21 @@
-import Image from "next/image";
-import GLDefaultLogo from "../../../../../public/images/logo_default.png";
-import SocialMediaIcon from "../ui/SocialMediaIcon";
+import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 
+import SocialMediaIcon from "../ui/SocialMediaIcon";
 import InstagramIcon from "../../../../../public/icons/Instagram.svg";
 import GithubIcon from "../../../../../public/icons/Github.svg";
 import LinkedinIcon from "../../../../../public/icons/Linkedin.svg";
-import Link from "next/link";
 
-type Props = {
-  backgroundColor?: `bg-${string}`;
-};
-export default function Footer({ backgroundColor }: Props) {
+export default function Footer() {
   return (
     <section
       data-testid="footer-container"
-      className={`flex justify-center fixed bottom-0 w-full py-2 px-4 xl:px-0 ${backgroundColor}`}
+      className={`flex justify-center w-full pt-8 pb-2 px-4`}
     >
       <div
         data-testid="footer-inner-container"
-        className="w-full max-w-[1078px] flex justify-between items-center"
+        className={`w-full ${MAX_CONTENT_WIDTH} flex justify-center flex-col gap-5 items-center py-4 `}
       >
-        <Link href={"/"}>
-        <div className="relative h-[80px] w-[140px]">
-          <Image
-            src={GLDefaultLogo}
-            alt="group icon"
-            fill
-            className="objetc-contain"
-          />
-        </div>
-        </Link>
-
-        <div
-          data-testid="footer-icon-container"
-          className="flex gap-4 lg:gap-8"
-        >
+        <div data-testid="footer-icon-container" className="flex gap-8 ">
           <SocialMediaIcon
             imageSrc={LinkedinIcon}
             href="https://www.linkedin.com/in/gustavoaraujoleite/"
@@ -48,6 +29,9 @@ export default function Footer({ backgroundColor }: Props) {
             href="https://www.instagram.com/gustavoaraujoleite/"
           />
         </div>
+        <span className="text-gray-50 text-[12px] md:text-[14px] lg:text-[18px] font-mono">
+          @2025 Gustavo Leite
+        </span>
       </div>
     </section>
   );
