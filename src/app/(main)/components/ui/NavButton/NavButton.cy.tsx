@@ -23,13 +23,24 @@ describe("NavButton component", () => {
     cy.get('[data-testid="nav-button-anchor"]').should("contain.text", title);
   });
 
+  it("should show non active state when path !== href", () => {
+    const randomPathProp = "/prop/test";
+    cy.mount(
+      <NavButton href={hrefRedirect} title={title} pathProp={randomPathProp} />
+    );
+
+    cy.get('[data-testid="nav-button-anchor"]')
+      .should("have.class", "text-gray-50")
+      .and("have.class", "after:w-0");
+  });
+
   it("should show active state when path === href", () => {
     cy.mount(
       <NavButton href={hrefRedirect} title={title} pathProp={hrefRedirect} />
     );
 
     cy.get('[data-testid="nav-button-anchor"]')
-      .should("have.class", "text-golden-yellow") 
+      .should("have.class", "text-golden-yellow")
       .and("have.class", "after:w-full");
   });
 });

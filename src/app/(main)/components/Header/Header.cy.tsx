@@ -42,6 +42,6 @@ describe("Header component", () => {
     cy.get('[data-testid="header-nav-container"]').should("exist");
   });
   it("nav container should disappear on mobile setting", () => {
-    cy.get('[data-testid="header-nav-container"]').should("have.class", "hidden").should("have.class", "sm:block");
+    cy.get('[data-testid="header-nav-container"]').should("have.class", "hidden").should("have.class", "md:block");
   });
 });
