@@ -37,4 +37,11 @@ describe("Header component", () => {
         expect(style.alignItems).to.equal("center");
       });
   });
+
+  it("nav container should exist", () => {
+    cy.get('[data-testid="header-nav-container"]').should("exist");
+  });
+  it("nav container should disappear on mobile setting", () => {
+    cy.get('[data-testid="header-nav-container"]').should("have.class", "hidden").should("have.class", "sm:block");
+  });
 });

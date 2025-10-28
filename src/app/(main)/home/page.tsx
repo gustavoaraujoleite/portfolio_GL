@@ -1,5 +1,5 @@
 
-export default function AboutMe() {
+export default function Home() {
   return (
     <section className="text-white">
       

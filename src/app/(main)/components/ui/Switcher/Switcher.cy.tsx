@@ -20,7 +20,7 @@ describe("Switcher component", () => {
     cy.get('[data-testid="switcher-container"]').click();
     cy.get('[data-testid="switcher-ball"]').should(
       "have.class",
-      "translate-x-6"
+      "translate-x-5"
     );
   });
   it("should toggle the ball position on consecutive clicks", () => {
@@ -32,7 +32,7 @@ describe("Switcher component", () => {
     cy.get('[data-testid="switcher-container"]').click();
     cy.get('[data-testid="switcher-ball"]').should(
       "have.class",
-      "translate-x-6"
+      "translate-x-5"
     );
 
     cy.get('[data-testid="switcher-container"]').click();
