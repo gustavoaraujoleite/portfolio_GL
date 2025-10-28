@@ -3,8 +3,9 @@ import { MAX_CONTENT_WIDTH } from "../../utils/globalStyle";
 import Link from "next/link";
 import Image from "next/image";
 import GLSmallLogo from "../../../../../public/icons/logo_small.svg";
-import NavButton from "../ui/NavButton";
 import SwitcherComponent from "../SwitcherComponent";
+import MenuNav from "../MenuNav";
+import BurgerMenu from "../ui/BurgerMenu";
 
 export default function Header() {
   return (
@@ -18,7 +19,7 @@ export default function Header() {
       >
         <div className="flex items-center gap-8 lg:gap-24">
           <Link href={"/"}>
-            <div className="relative h-[54px] w-[54px] lg:h-[86px] lg:w-[86px]">
+            <div className="relative h-[76px] w-[76px] lg:h-[86px] lg:w-[86px]">
               <Image
                 src={GLSmallLogo}
                 alt="group icon"
@@ -27,20 +28,19 @@ export default function Header() {
               />
             </div>
           </Link>
-          <section
-            data-testid="menu-nav-container"
-            className="hidden md:flex flex-col gap-6 md:flex-row md:items-center md:gap-4"
-          >
-            <NavButton href="/home" title="Home" />
-            <NavButton href="/about" title="About me" />
-            <NavButton href="/experience" title="Experience" />
-            <NavButton href="/contact" title="Contact" />
+          <section data-testid="menu-nav-container" className="hidden md:block">
+            <MenuNav isHorizontal />
           </section>
         </div>
-        <section data-testid="header-nav-container">
-          <div className="hidden md:block ">
-            <SwitcherComponent />
-          </div>
+        <section
+          data-testid="header-nav-container"
+          className="hidden md:block "
+        >
+          <SwitcherComponent />
+        </section>
+
+        <section className="block md:hidden">
+          <BurgerMenu />
         </section>
       </div>
     </section>
