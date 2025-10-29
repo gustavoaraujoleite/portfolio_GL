@@ -18,7 +18,7 @@ export default function AppLayout({ children }: Props) {
 
         <section className="flex flex-col flex-1">
           <div className="w-full flex justify-center pt-8 flex-1">
-            <div className={`w-full pl-6 ${MAX_CONTENT_WIDTH}`}>{children}</div>
+            <div className={`w-full ${MAX_CONTENT_WIDTH}`}>{children}</div>
           </div>
 
           <Footer />
