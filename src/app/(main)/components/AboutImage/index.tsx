@@ -4,7 +4,7 @@ export default function AboutImage() {
   return (
     <div
       data-testid="about-image-container"
-      className="relative w-[80%] md:w-[70%] lg:w-[56%] aspect-square"
+      className="relative w-[70%] md:w-[38%] aspect-square"
     >
       <Image
         data-testid="about-image-children"

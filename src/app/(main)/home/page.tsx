@@ -1,12 +1,5 @@
-import AboutImage from "../components/AboutImage";
+import HomeContent from "../components/HomeContent";
 
 export default function Home() {
-  return (
-    <section
-      data-testid="home-main-container"
-      className="w-full h-full flex flex-col items-center gap-8"
-    >
-      <AboutImage />
-    </section>
-  );
+  return <HomeContent />;
 }

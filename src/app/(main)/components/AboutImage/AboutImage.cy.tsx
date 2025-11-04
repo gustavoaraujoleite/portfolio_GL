@@ -15,11 +15,10 @@ describe("About Page Image component", () => {
     );
   });
 
-  it("image should have 80% width for mobile, 70% width for tablets and smaller laptops and a 56% width for larger devices", () => {
+  it("image should have 70% width for mobile, 38% width for other devices", () => {
     cy.get('[data-testid="about-image-container"]')
-      .should("have.class", "w-[80%]")
-      .should("have.class", "md:w-[70%]")
-      .should("have.class", "lg:w-[56%]");
+      .should("have.class", "w-[70%]")
+      .should("have.class", "md:w-[38%]");
   });
 
   it("children component holding Image should exist", () => {
@@ -32,7 +31,7 @@ describe("About Page Image component", () => {
       "rounded-full"
     );
   });
-  
+
   it("image should have a half moon radial gradient from bottom to top", () => {
     cy.get('[data-testid="about-image-children"]').should(
       "have.class",
