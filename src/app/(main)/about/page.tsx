@@ -1,7 +1,5 @@
+import AboutMeContent from "../components/AboutMeContent";
 
 export default function AboutMe() {
-  return (
-    <section>
-    </section>
-  );
+  return <AboutMeContent />;
 }

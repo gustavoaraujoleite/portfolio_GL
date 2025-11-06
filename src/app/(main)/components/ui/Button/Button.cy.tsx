@@ -17,10 +17,16 @@ describe("Button component", () => {
     );
   });
 
-  it("button component should display a darker golden color when mouse hover", () => {
+  it("button component should display a black color when mouse hover", () => {
     cy.get('[data-testid="button-main-container"]').should(
       "have.class",
-      "hover:bg-opacity-95"
+      "hover:bg-black"
+    );
+  });
+  it("button component should display a golden yellow for text color when mouse hover", () => {
+    cy.get('[data-testid="button-main-container"]').should(
+      "have.class",
+      "hover:text-golden-yellow"
     );
   });
 
