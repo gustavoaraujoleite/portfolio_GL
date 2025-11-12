@@ -1,25 +1,20 @@
-import TextInput from ".";
+import TextArea from ".";
 
-describe("Text Input component", () => {
+describe("Text Area component", () => {
   beforeEach(() => {
-    cy.mount(
-      <TextInput onChange={() => {}} value="" type="text" name="testing" />
-    );
+    cy.mount(<TextArea onChange={() => {}} value="" name="testing" />);
   });
 
-  it("Text input main container should exist", () => {
-    cy.get('[data-testid="text-input-main-container"]').should("exist");
-  });
   it("Text input component should exist", () => {
-    cy.get('[data-testid="text-input-container"]').should("exist");
+    cy.get('[data-testid="text-area-main-container"]').should("exist");
   });
 
   it("input component should exist inside main component", () => {
-    cy.get('[data-testid="text-input-component"]').should("exist");
+    cy.get('[data-testid="text-area-component"]').should("exist");
   });
 
   it("input component should not have any outline when focus and transparent background", () => {
-    cy.get('[data-testid="text-input-component"]')
+    cy.get('[data-testid="text-area-component"]')
       .should("have.class", "outline-none")
       .should("have.class", "bg-transparent");
   });
@@ -28,15 +23,14 @@ describe("Text Input component", () => {
     const inputVal = "Initial text";
     const placeholder = "Type something for initial value";
     cy.mount(
-      <TextInput
+      <TextArea
         onChange={() => {}}
         value={inputVal}
-        type="text"
         placeholder={placeholder}
         name="testing input outline"
       />
     );
-    cy.get('[data-testid="text-input-component"]')
+    cy.get('[data-testid="text-area-component"]')
       .should("have.value", inputVal)
       .and("have.attr", "placeholder", placeholder);
   });
@@ -45,33 +39,32 @@ describe("Text Input component", () => {
     const onChangeSpy = cy.spy().as("onChangeSpy");
 
     cy.mount(
-      <TextInput
+      <TextArea
         value=""
         onChange={onChangeSpy}
         placeholder="Change spy testing"
-        type="text"
         name="testing input's onChange param"
       />
     );
 
-    cy.get('[data-testid="text-input-component"]').type("Testing onChange");
+    cy.get('[data-testid="text-area-component"]').type("Testing onChange");
 
     cy.get("@onChangeSpy").should("have.been.called");
   });
+
   it("should render correct error message if error prop exist", () => {
     const errorMessage = "This is an error message";
     cy.mount(
-      <TextInput
+      <TextArea
         value=""
         onChange={() => {}}
         placeholder="error message testing"
-        type="text"
         name="testing error message"
         errorMessage={errorMessage}
       />
     );
 
-    cy.get('[data-testid="text-input-error-element"]')
+    cy.get('[data-testid="text-area-error-element"]')
       .should("be.visible")
       .should("have.text", errorMessage);
   });
