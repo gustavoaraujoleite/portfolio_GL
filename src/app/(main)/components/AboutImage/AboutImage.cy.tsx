@@ -8,10 +8,10 @@ describe("About Page Image component", () => {
     cy.get('[data-testid="about-image-container"]').should("exist");
   });
 
-  it("image should have an aspect square class", () => {
+  it("image should have correct aspect class", () => {
     cy.get('[data-testid="about-image-container"]').should(
       "have.class",
-      "aspect-square"
+      "aspect-[960/958]"
     );
   });
 
