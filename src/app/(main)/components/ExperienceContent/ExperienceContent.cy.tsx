@@ -25,4 +25,16 @@ describe("Experience content component", () => {
       .should("have.class", "md:grid-cols-2")
       .should("have.class", "md:justify-items-center");
   });
+
+  it("each project card should display a title and image", () => {
+    cy.get('[data-testid="project-card-container"]').each(($card) => {
+      cy.wrap($card).find("h1").should("exist");
+      cy.wrap($card).find("img").should("exist");
+    });
+  });
+
+  it("should render sections with correct headings", () => {
+    cy.contains("Projetos").should("exist");
+    cy.contains("Skills").should("exist");
+  });
 });

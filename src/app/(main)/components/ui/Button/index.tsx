@@ -10,7 +10,7 @@ export default function ButtonTemplate({ title }: Props) {
     >
       <span
         data-testid="button-title"
-        className="font-mono font-medium text-xl "
+        className="font-mono font-medium text-base md:text-xl "
       >
         {title}
       </span>
