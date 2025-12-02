@@ -50,11 +50,24 @@ export default function ContactContent() {
     },
   });
 
-  const onSubmit = (data: FormType) => {
-    console.log("entrou ");
-    console.log("✅ Dados válidos:", data);
+  const onSubmit = async (data: FormType) => {
+    try {
+      const response = await fetch("/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data,
+        }),
+      });
+      //TODO - Criar evento de Toast
+      reset();
+    } catch (error) {
+      //TODO - Criar log
 
-    reset();
+      console.log(error);
+    }
   };
   return (
     <section className="flex flex-col gap-24  items-center h-full p-4">
