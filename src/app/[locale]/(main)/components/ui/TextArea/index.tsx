@@ -21,7 +21,7 @@ export default function TextArea({
       >
         <textarea
           data-testid="text-area-component"
-          className="outline-none bg-transparent placeholder:text-gray-100 text-gray-50 font-mono w-full min-h-[300px] scrollbar:w-[6px] scrollbar-track:rounded-md scrollbar-track:bg-gray-200 scrollbar-thumb:rounded-[2px] scrollbar-thumb:bg-golden-yellow"
+          className="outline-none bg-transparent placeholder:text-gray-100 text-gray-50 font-mono w-full min-h-[150px] scrollbar:w-[6px] scrollbar-track:rounded-md scrollbar-track:bg-gray-200 scrollbar-thumb:rounded-[2px] scrollbar-thumb:bg-golden-yellow"
           value={value}
           onChange={onChange}
           placeholder={placeholder}

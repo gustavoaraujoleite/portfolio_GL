@@ -119,13 +119,7 @@ export default function ContactContent() {
   };
 
   return (
-    <section className="flex flex-col gap-24  items-center h-full p-4">
-      <div data-testid="contact-content-main-container">
-        <h1 className="text-4xl font-semibold font-sains text-golden-yellow">
-          Contact
-        </h1>
-      </div>
-
+    <section className="flex flex-col gap-24  items-center h-full px-4">
       <form
         data-testid="contact-form-main-container"
         className="h-full w-full flex flex-col max-w-[90%] md:max-w-[50%] gap-6"
@@ -200,9 +194,12 @@ export default function ContactContent() {
             </div>
           )}
         />
-        <div className="mt-8">
+
+        <div className="mt-2">
           {isLoading ? (
-            <Spinner />
+            <div data-testid="spinner">
+              <Spinner />
+            </div>
           ) : (
             <button
               type="submit"
@@ -210,7 +207,7 @@ export default function ContactContent() {
               data-testid="contact-submit-button"
               disabled={!isValid}
             >
-              <ButtonTemplate title="Send" disabled={!isValid}/>
+              <ButtonTemplate title="Send" disabled={!isValid} />
             </button>
           )}
         </div>

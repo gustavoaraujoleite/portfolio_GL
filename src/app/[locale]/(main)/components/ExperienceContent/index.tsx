@@ -66,12 +66,7 @@ export default function ExperienceContent() {
     },
   ];
   return (
-    <section className="flex flex-col gap-24 w-full items-center h-full p-4">
-      <div data-testid="experience-content-main-container">
-        <h1 className="text-4xl font-semibold font-sains text-golden-yellow">
-          Projetos
-        </h1>
-      </div>
+    <section className="flex flex-col gap-24 w-full items-center h-full px-4">
       <section className="h-full w-full flex flex-col gap-40">
         {projectData.map((project) => {
           return (
@@ -91,7 +86,7 @@ export default function ExperienceContent() {
       </section>
 
       <section>
-        <h2 className="text-4xl font-semibold font-sains text-golden-yellow">
+        <h2 className="text-3xl font-semibold font-sains text-golden-yellow">
           Skills
         </h2>
       </section>
