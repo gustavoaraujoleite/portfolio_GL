@@ -1,5 +1,6 @@
 "use client";
 import * as z from "zod";
+import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ToastContainer, toast, Slide } from "react-toastify";
@@ -7,6 +8,7 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 import ButtonTemplate from "../ui/Button";
 import TextArea from "../ui/TextArea";
 import TextInput from "../ui/TextInput";
+import Spinner from "../ui/Spinner";
 
 const formSchema = z.object({
   fullname: z
@@ -38,11 +40,12 @@ const formSchema = z.object({
 type FormType = z.infer<typeof formSchema>;
 
 export default function ContactContent() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const {
     handleSubmit,
     control,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<FormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,6 +56,7 @@ export default function ContactContent() {
   });
 
   const onSubmit = async (data: FormType) => {
+    setIsLoading(true);
     try {
       const response = await fetch("/api", {
         method: "POST",
@@ -109,8 +113,11 @@ export default function ContactContent() {
       );
 
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
+
   return (
     <section className="flex flex-col gap-24  items-center h-full p-4">
       <div data-testid="contact-content-main-container">
@@ -193,14 +200,20 @@ export default function ContactContent() {
             </div>
           )}
         />
-
-        <button
-          className="mt-8"
-          type="submit"
-          data-testid="contact-submit-button"
-        >
-          <ButtonTemplate title="Send" />
-        </button>
+        <div className="mt-8">
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <button
+              type="submit"
+              className={`w-full ${!isValid && "opacity-25"}`}
+              data-testid="contact-submit-button"
+              disabled={!isValid}
+            >
+              <ButtonTemplate title="Send" disabled={!isValid}/>
+            </button>
+          )}
+        </div>
       </form>
       <ToastContainer
         position="top-center"
