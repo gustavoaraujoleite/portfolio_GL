@@ -2,6 +2,8 @@
 import * as z from "zod";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ToastContainer, toast, Slide } from "react-toastify";
+
 import ButtonTemplate from "../ui/Button";
 import TextArea from "../ui/TextArea";
 import TextInput from "../ui/TextInput";
@@ -61,10 +63,50 @@ export default function ContactContent() {
           data,
         }),
       });
-      //TODO - Criar evento de Toast
-      reset();
+      if (response.status === 200) {
+        toast.success("Mensagem enviada com sucesso!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        });
+        reset();
+      } else {
+        toast.error(
+          "Erro ao enviar a mensagem, por favor tente de novo mais tarde!",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Slide,
+          }
+        );
+      }
     } catch (error) {
-      //TODO - Criar log
+      toast.error(
+        "Erro ao enviar a mensagem, por favor tente de novo mais tarde!",
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          transition: Slide,
+        }
+      );
 
       console.log(error);
     }
@@ -160,6 +202,19 @@ export default function ContactContent() {
           <ButtonTemplate title="Send" />
         </button>
       </form>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Slide}
+      />
     </section>
   );
 }
